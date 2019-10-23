@@ -17,7 +17,16 @@ def obtain_cities_from_csv(filename):
 
 def cities_to_csv(cities_list):
     cities_file = open("Output.csv", "w", encoding="utf8")
-    for city in cities_list:
-        cities_file.write(city.csv_representation())
-        cities_file.write("\n")
+    count = 1
+    size = len(cities_list)
+    cities_file.write(f"id,ciudad,estado,lat,lon\n")
+    for index, city in enumerate(cities_list):
+        if index + 1 < size:
+            cities_file.write(f"{count},")
+            cities_file.write(city.csv_representation())
+            cities_file.write("\n")
+            cities_file.write(f"{count},")
+            cities_file.write(cities_list[index + 1].csv_representation())
+            cities_file.write("\n")
+            count += 1
     cities_file.close()

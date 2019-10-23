@@ -1,18 +1,21 @@
-import numpy as np, random, operator, pandas as pd, matplotlib.pyplot as plt
-from City import City
+import numpy as np
+from numpy import random, operator
+import pandas as pd
 from Fitness import Fitness
 from CSV_formater import obtain_cities_from_csv, cities_to_csv
 
 
-def createRoute(cityList):
+def createRoute(cityList, origin_city):
     route = random.sample(cityList, len(cityList))
+    route.insert(0, origin_city)
+    route.append(origin_city)
     return route
 
 
-def initialPopulation(popSize, cityList):
+def initialPopulation(popSize, cityList, origin_city):
     population = []
     for i in range(0, popSize):
-        population.append(createRoute(cityList))
+        population.append(createRoute(cityList, origin_city))
     return population
 
 
@@ -25,7 +28,7 @@ def rankRoutes(population):
 
 def selection(popRanked, eliteSize):
     selectionResults = []
-    df = pd.DataFrame(np.array(popRanked), columns=["Index","Fitness"])
+    df = pd.DataFrame(np.array(popRanked), columns=["Index", "Fitness"])
     df['cum_sum'] = df.Fitness.cumsum()
     df['cum_perc'] = 100*df.cum_sum/df.Fitness.sum()
 
@@ -49,6 +52,9 @@ def matingPool(population, selectionResults):
 
 
 def breed(parent1, parent2):
+    origin_city = parent1[0]
+    parent1 = parent1[1:-1]
+    parent2 = parent2[1:-1]
     child = []
     childP1 = []
     childP2 = []
@@ -65,6 +71,8 @@ def breed(parent1, parent2):
     childP2 = [item for item in parent2 if item not in childP1]
 
     child = childP1 + childP2
+    child.insert(0, origin_city)
+    child.append(origin_city)
     return child
 
 
@@ -83,9 +91,9 @@ def breedPopulation(matingpool, eliteSize):
 
 
 def mutate(individual, mutationRate):
-    for swapped in range(len(individual)):
+    for swapped in range(1, len(individual) - 1):
         if(random.random() < mutationRate):
-            swapWith = int(random.random() * len(individual))
+            swapWith = int(random.random() * (len(individual) - 1)) + 1
 
             city1 = individual[swapped]
             city2 = individual[swapWith]
@@ -112,13 +120,16 @@ def nextGeneration(currentGen, eliteSize, mutationRate):
     return nextGeneration
 
 
-def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
-    pop = initialPopulation(popSize, population)
-    print("Initial distance: " + str(1 / rankRoutes(pop)[0][1]))
+def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations, origin_city):
+    pop = initialPopulation(popSize, population, origin_city)
+    initial_distance = str(1 / rankRoutes(pop)[0][1])
 
     for i in range(0, generations):
+        if i % 100 == 0:
+            print(f"Generation number {i} out of {generations}")
         pop = nextGeneration(pop, eliteSize, mutationRate)
 
+    print("Initial distance: " + initial_distance)
     print("Final distance: " + str(1 / rankRoutes(pop)[0][1]))
     bestRouteIndex = rankRoutes(pop)[0][0]
     bestRoute = pop[bestRouteIndex]
@@ -126,6 +137,15 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
 
 
 cityList = obtain_cities_from_csv("CiudadesMX.csv")
-best_route = geneticAlgorithm(population=cityList, popSize=1000, eliteSize=20, mutationRate=0.01, generations=10000)
-cities_to_csv(best_route)
+origin_city = {"state": "Yucatan", "name": "Merida"}
+filtered_list = []
+for city in cityList:
+    if city.name != "Merida" and city.state != "Yucatan":
+        filtered_list.append(city)
+    else:
+        search_city = city
+best_route = geneticAlgorithm(population=filtered_list, popSize=300,
+                              eliteSize=20, mutationRate=0.01,
+                              generations=10000, origin_city=search_city)
 
+cities_to_csv(best_route)
