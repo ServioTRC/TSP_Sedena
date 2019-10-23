@@ -1,6 +1,7 @@
 import numpy as np, random, operator, pandas as pd, matplotlib.pyplot as plt
 from City import City
 from Fitness import Fitness
+from CSV_formater import obtain_cities_from_csv, cities_to_csv
 
 
 def createRoute(cityList):
@@ -124,9 +125,7 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
     return bestRoute
 
 
-cityList = []
+cityList = obtain_cities_from_csv("CiudadesMX.csv")
+best_route = geneticAlgorithm(population=cityList, popSize=1000, eliteSize=20, mutationRate=0.01, generations=10000)
+cities_to_csv(best_route)
 
-for i in range(0, 25):
-    cityList.append(City(lon=int(random.random() * 200), lat=int(random.random() * 200)))
-
-print(geneticAlgorithm(population=cityList, popSize=100, eliteSize=20, mutationRate=0.01, generations=500))
