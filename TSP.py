@@ -1,5 +1,4 @@
-import numpy as np
-from numpy import random, operator
+import numpy as np, random, operator
 import pandas as pd
 from Fitness import Fitness
 from CSV_formater import obtain_cities_from_csv, cities_to_csv
@@ -144,7 +143,7 @@ for city in cityList:
         filtered_list.append(city)
     else:
         search_city = city
-best_route = geneticAlgorithm(population=filtered_list, popSize=300,
+best_route = geneticAlgorithm(population=filtered_list, popSize=400,
                               eliteSize=20, mutationRate=0.01,
                               generations=10000, origin_city=search_city)
 
