@@ -4,6 +4,7 @@ import argparse
 import numpy as np, random, operator
 import pandas as pd
 from pprint import pprint
+from algorithms.brute_force import brute
 from Fitness import Fitness
 from CSV_formater import obtain_cities_from_csv, cities_to_csv
 
@@ -145,8 +146,8 @@ def genetic(filtered_list, search_city):
                                   generations=10000, origin_city=search_city)
     cities_to_csv(best_route)
 
-def brute(filtered_list, search_city):
-    print('NOT IMPLEMENTED YET')
+# def brute(filtered_list, search_city):
+#     print('NOT IMPLEMENTED YET')
 
 def main():
     # Parse arguments to run either brute or genetic algorithm.
