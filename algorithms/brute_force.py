@@ -28,7 +28,7 @@ def traverse(city_stack, filtered_list, distance):
         city_stack.append(city)
         cpy_filtered = list(filtered_list)
         cpy_filtered.remove(city)
-        d = traverse(city_stack, cpy_filtered, obtain_distance_km(city_stack[-1], city))
+        d = traverse(city_stack, cpy_filtered, distance + obtain_distance_km(city_stack[-1], city))
         if isinstance(d, int):
             distance_list.append(d)
 
