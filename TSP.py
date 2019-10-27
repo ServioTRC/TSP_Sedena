@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import numpy as np, random, operator
 import pandas as pd
 from Fitness import Fitness
