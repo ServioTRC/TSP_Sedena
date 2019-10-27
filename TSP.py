@@ -1,7 +1,9 @@
-import numpy as np, random, operator
+import numpy as np
+import random
+import operator
 import pandas as pd
 from Fitness import Fitness
-from CSV_formater import obtain_cities_from_csv, cities_to_csv
+from CSV_formater import obtain_cities_from_csv, cities_to_csv, evolution_to_csv
 
 
 def createRoute(cityList, origin_city):
@@ -90,6 +92,7 @@ def breedPopulation(matingpool, eliteSize):
 
 
 def mutate(individual, mutationRate):
+    # Mutaciones de multiples grupos
     for swapped in range(1, len(individual) - 1):
         if(random.random() < mutationRate):
             swapWith = int(random.random() * (len(individual) - 1)) + 1
@@ -99,6 +102,7 @@ def mutate(individual, mutationRate):
 
             individual[swapped] = city2
             individual[swapWith] = city1
+            # Avoid crossing edges
     return individual
 
 
@@ -120,6 +124,7 @@ def nextGeneration(currentGen, eliteSize, mutationRate):
 
 
 def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations, origin_city):
+    cost_track = []
     pop = initialPopulation(popSize, population, origin_city)
     initial_distance = str(1 / rankRoutes(pop)[0][1])
 
@@ -127,12 +132,13 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations, 
         if i % 100 == 0:
             print(f"Generation number {i} out of {generations}")
         pop = nextGeneration(pop, eliteSize, mutationRate)
+        cost_track.append(str(1 / rankRoutes(pop)[0][1]))
 
     print("Initial distance: " + initial_distance)
     print("Final distance: " + str(1 / rankRoutes(pop)[0][1]))
     bestRouteIndex = rankRoutes(pop)[0][0]
     bestRoute = pop[bestRouteIndex]
-    return bestRoute
+    return bestRoute, cost_track
 
 
 cityList = obtain_cities_from_csv("CiudadesMX.csv")
@@ -143,8 +149,9 @@ for city in cityList:
         filtered_list.append(city)
     else:
         search_city = city
-best_route = geneticAlgorithm(population=filtered_list, popSize=400,
-                              eliteSize=20, mutationRate=0.01,
-                              generations=10000, origin_city=search_city)
+best_route, evolution_cost = geneticAlgorithm(population=filtered_list, popSize=100,
+                                              eliteSize=20, mutationRate=0.01,
+                                              generations=10, origin_city=search_city)
 
-cities_to_csv(best_route)
+cities_to_csv(best_route, "Output.csv")
+evolution_to_csv(evolution_cost, "Costs_Evolution.csv")

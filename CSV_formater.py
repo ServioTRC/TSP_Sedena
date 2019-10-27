@@ -15,8 +15,8 @@ def obtain_cities_from_csv(filename):
     return cities
 
 
-def cities_to_csv(cities_list):
-    cities_file = open("Output.csv", "w", encoding="utf8")
+def cities_to_csv(cities_list, filename):
+    cities_file = open(filename, "w", encoding="utf8")
     count = 1
     size = len(cities_list)
     cities_file.write(f"id,ciudad,estado,lat,lon\n")
@@ -30,3 +30,11 @@ def cities_to_csv(cities_list):
             cities_file.write("\n")
             count += 1
     cities_file.close()
+
+
+def evolution_to_csv(costs_list, filename):
+    costs_file = open(filename, "w", encoding="utf8")
+    costs_file.write(f"id,cost\n")
+    for index, cost in enumerate(costs_list):
+        costs_file.write(f"{index},{cost}\n")
+    costs_file.close()

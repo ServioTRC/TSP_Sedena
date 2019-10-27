@@ -12,6 +12,7 @@ for city in cityList:
 
 salida = []
 previous_city = search_city
+used = True
 while filtered_list:
     if len(filtered_list) > 31/2:
         min_distance = None
@@ -54,4 +55,4 @@ def cities_to_csv(cities_list):
 
 salida.insert(0, search_city)
 salida.append(search_city)
-cities_to_csv(salida)
+cities_to_csv(salida, "Output_Uninformed.csv")
