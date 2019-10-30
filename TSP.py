@@ -1,19 +1,19 @@
 #! /usr/bin/python3
+import time
 import argparse
-import numpy as np, random, operator
-import pandas as pd
 from pprint import pprint
 from algorithms.brute_force import brute
-from Fitness import Fitness
 from CSV_formater import obtain_cities_from_csv, cities_to_csv, evolution_to_csv
 from algorithms.genetic import geneticAlgorithm
 
 
 def genetic(filtered_list, search_city):
-    best_route, cost_track = geneticAlgorithm(population=filtered_list, popSize=400, 
-                                            eliteSize=20, mutationRate=0.01,
-                                            generations=10000, origin_city=search_city,
-                                            crossover=300)
+    start_time = time.time()
+    best_route, cost_track = geneticAlgorithm(population=filtered_list, popSize=400,
+                                              eliteSize=20, mutationRate=0.01,
+                                              generations=1000, origin_city=search_city,
+                                              crossover=300)
+    print(time.time() - start_time)
     cities_to_csv(best_route, "Output.csv")
     evolution_to_csv(cost_track, "Costs_Evolution.csv")
 
@@ -35,7 +35,7 @@ def main():
     origin_city = {"state": "Yucatan", "name": "Merida"}
     filtered_list = []
     for city in cityList:
-        if city.name != "Merida" and city.state != "Yucatan":
+        if city.name != origin_city["name"] and city.state != origin_city["state"]:
             filtered_list.append(city)
         else:
             search_city = city

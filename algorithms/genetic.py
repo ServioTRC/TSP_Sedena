@@ -80,26 +80,29 @@ def breed(parent1, parent2):
 
 def swap_random(seq, size):
     idx = range(len(seq)-2)
-    value = len(seq)-2
+    value = len(seq)
     for _ in range(1000):
         i1, i2 = random.sample(idx, 2)
         if i1+1+size < value and i2+1+size < value and not(set(range(i1+1, i1+1+size)).intersection(set(range(i2+1, i2+1+size)))):
-            seq[i1+1:i1+size], seq[i2+1:i2+size] = seq[i2+1:i2+size], seq[i1+1:i1+size]
+            seq[i1+1:i1+1+size], seq[i2+1:i2+1+size] = seq[i2+1:i2+1+size], seq[i1+1:i1+1+size]
             return seq
     return seq
 
 
 def breedPopulation(matingpool, eliteSize, crossover, crossover_size):
     children = []
+    crossover = 0 if crossover <= 0 else crossover
+    crossover_end = eliteSize + crossover
     # pool = random.sample(matingpool, len(matingpool))
 
     for i in range(0, eliteSize):
         children.append(matingpool[i])
 
-    for i in range(eliteSize, eliteSize + crossover):
+    for i in range(eliteSize, crossover_end):
+        #children.append(matingpool[i])
         children.append(swap_random(matingpool[i], crossover_size))
 
-    for i in range(eliteSize + crossover, len(matingpool)):
+    for i in range(crossover_end, len(matingpool)):
         child = breed(matingpool[i], matingpool[len(matingpool)-i-1])
         children.append(child)
 
@@ -108,9 +111,9 @@ def breedPopulation(matingpool, eliteSize, crossover, crossover_size):
 
 def mutate(individual, mutationRate):
     # Mutaciones de multiples grupos
-    for swapped in range(1, len(individual) - 1):
+    for swapped in range(1, len(individual) - 2):
         if(random.random() < mutationRate):
-            swapWith = int(random.random() * (len(individual) - 1)) + 1
+            swapWith = int(random.random() * (len(individual) - 2)) + 1
 
             city1 = individual[swapped]
             city2 = individual[swapWith]
@@ -145,15 +148,16 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations, 
     cost_track = []
     pop = initialPopulation(popSize, population, origin_city)
     initial_distance = str(1 / rankRoutes(pop)[0][1])
-    fifth = popSize // 5
+    fifth = popSize // 5 
     values = {fifth * 1: True, fifth * 2: True, fifth * 3: True, fifth * 4: True}
-    crossover_size = 5
+    crossover_size = 4
 
     for i in range(0, generations):
         if i % 100 == 0:
             print(f"Generation number {i} out of {generations}")
         if values.get(i):
             crossover_size -= 1
+            crossover -= 50
         pop = nextGeneration(pop, eliteSize, mutationRate, crossover, crossover_size)
         cost_track.append(str(1 / rankRoutes(pop)[0][1]))
 

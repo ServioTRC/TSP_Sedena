@@ -17,13 +17,15 @@ def traverse(city_stack, filtered_list, distance):
     # If all the cities have been reached, return to search_city.
     # Prints to console the distance taken to return.
     if len(filtered_list) == 0:
-        cities = list(map(lambda x: x.name, city_stack))
-        print((('=>'.join(cities))+'\t returned to '+cities[0]+' with distance %d')%distance)
+        # cities = list(map(lambda x: x.name, city_stack))
+        # print((('=>'.join(cities))+'\t returned to '+cities[0]+' with distance %d')%distance)
+        # print(obtain_distance_km(city_stack[-1], city_stack[0]))
+        # raise Exception("mal")
         return distance + obtain_distance_km(city_stack[-1], city_stack[0])
 
     distance_list = []
     for city in filtered_list:
-        print("Moving from "+city_stack[-1].name+" to "+city.name)
+        # print("Moving from "+city_stack[-1].name+" to "+city.name)
         # Take out for backtrack.
         city_stack.append(city)
         cpy_filtered = list(filtered_list)
