@@ -20,7 +20,6 @@ def traverse(city_stack, filtered_list, distance):
         # cities = list(map(lambda x: x.name, city_stack))
         # print((('=>'.join(cities))+'\t returned to '+cities[0]+' with distance %d')%distance)
         # print(obtain_distance_km(city_stack[-1], city_stack[0]))
-        # raise Exception("mal")
         return distance + obtain_distance_km(city_stack[-1], city_stack[0])
 
     distance_list = []

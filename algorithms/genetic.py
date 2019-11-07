@@ -93,13 +93,11 @@ def breedPopulation(matingpool, eliteSize, crossover, crossover_size):
     children = []
     crossover = 0 if crossover <= 0 else crossover
     crossover_end = eliteSize + crossover
-    # pool = random.sample(matingpool, len(matingpool))
 
     for i in range(0, eliteSize):
         children.append(matingpool[i])
 
     for i in range(eliteSize, crossover_end):
-        #children.append(matingpool[i])
         children.append(swap_random(matingpool[i], crossover_size))
 
     for i in range(crossover_end, len(matingpool)):
@@ -110,7 +108,6 @@ def breedPopulation(matingpool, eliteSize, crossover, crossover_size):
 
 
 def mutate(individual, mutationRate):
-    # Mutaciones de multiples grupos
     for swapped in range(1, len(individual) - 2):
         if(random.random() < mutationRate):
             swapWith = int(random.random() * (len(individual) - 2)) + 1
@@ -148,7 +145,7 @@ def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations, 
     cost_track = []
     pop = initialPopulation(popSize, population, origin_city)
     initial_distance = str(1 / rankRoutes(pop)[0][1])
-    fifth = popSize // 5 
+    fifth = popSize // 5
     values = {fifth * 1: True, fifth * 2: True, fifth * 3: True, fifth * 4: True}
     crossover_size = 4
 

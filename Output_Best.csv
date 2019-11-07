@@ -1,65 +1,65 @@
 id,ciudad,estado,lat,lon
 1,Merida,Yucatan,20.9753704,-89.6169586
-1,Tampico,Tamaulipas,22.2448406,-97.8351974
-2,Tampico,Tamaulipas,22.2448406,-97.8351974
-2,Veracruz,Veracruz de Ignacio de la Llave,19.5312405,-96.9158936
-3,Veracruz,Veracruz de Ignacio de la Llave,19.5312405,-96.9158936
-3,Puebla de Zaragoza,Puebla,19.0379295,-98.2034607
-4,Puebla de Zaragoza,Puebla,19.0379295,-98.2034607
-4,Tlaxcala,Tlaxcala,19.3190498,-98.1998215
-5,Tlaxcala,Tlaxcala,19.3190498,-98.1998215
-5,Pachuca de Soto,Hidalgo,20.1169701,-98.7332916
-6,Pachuca de Soto,Hidalgo,20.1169701,-98.7332916
-6,Ciudad de Mexico,Distrito Federal,19.4284706,-99.1276627
-7,Ciudad de Mexico,Distrito Federal,19.4284706,-99.1276627
-7,Toluca de Lerdo,Mexico,19.2878609,-99.6532364
+1,Cancun,Quintana Roo,21.1742897,-86.8465576
+2,Cancun,Quintana Roo,21.1742897,-86.8465576
+2,Campeche,Campeche,19.8438606,-90.5255432
+3,Campeche,Campeche,19.8438606,-90.5255432
+3,Villahermosa,Tabasco,17.9868908,-92.9302826
+4,Villahermosa,Tabasco,17.9868908,-92.9302826
+4,Tuxtla Gutierrez,Chiapas,16.7597294,-93.1130829
+5,Tuxtla Gutierrez,Chiapas,16.7597294,-93.1130829
+5,Oaxaca de Juarez,Oaxaca,17.0654202,-96.7236481
+6,Oaxaca de Juarez,Oaxaca,17.0654202,-96.7236481
+6,Chilpancingo de los Bravo,Guerrero,17.5506001,-99.5057831
+7,Chilpancingo de los Bravo,Guerrero,17.5506001,-99.5057831
+7,Cuernavaca,Morelos,18.9260998,-99.230751
+8,Cuernavaca,Morelos,18.9260998,-99.230751
 8,Toluca de Lerdo,Mexico,19.2878609,-99.6532364
-8,Morelia,Michoacan de Ocampo,19.7007809,-101.184433
-9,Morelia,Michoacan de Ocampo,19.7007809,-101.184433
-9,Santiago de Queretaro,Queretaro,20.5880604,-100.3880615
-10,Santiago de Queretaro,Queretaro,20.5880604,-100.3880615
-10,Leon,Guanajuato,21.1290798,-101.6737366
-11,Leon,Guanajuato,21.1290798,-101.6737366
-11,Aguascalientes,Aguascalientes,21.8823395,-102.2825928
-12,Aguascalientes,Aguascalientes,21.8823395,-102.2825928
-12,San Luis Potosi,San Luis Potosi,22.1498203,-100.9791565
-13,San Luis Potosi,San Luis Potosi,22.1498203,-100.9791565
-13,Saltillo,Coahuila de Zaragoza,25.4232101,-101.0053024
-14,Saltillo,Coahuila de Zaragoza,25.4232101,-101.0053024
-14,Monterrey,Nuevo Leon,25.6750698,-100.3184662
-15,Monterrey,Nuevo Leon,25.6750698,-100.3184662
-15,Zacatecas,Zacatecas,22.7684307,-102.5814133
-16,Zacatecas,Zacatecas,22.7684307,-102.5814133
-16,Victoria de Durango,Durango,24.0203209,-104.6575623
-17,Victoria de Durango,Durango,24.0203209,-104.6575623
-17,Chihuahua,Chihuahua,28.6352806,-106.0888901
-18,Chihuahua,Chihuahua,28.6352806,-106.0888901
-18,Hermosillo,Sonora,29.1026001,-110.9773178
-19,Hermosillo,Sonora,29.1026001,-110.9773178
-19,Tijuana,Baja California,32.5027008,-117.0037079
-20,Tijuana,Baja California,32.5027008,-117.0037079
-20,La Paz,Baja California Sur,24.1443691,-110.300499
-21,La Paz,Baja California Sur,24.1443691,-110.300499
-21,Culiacan,Sinaloa,24.7903194,-107.3878174
-22,Culiacan,Sinaloa,24.7903194,-107.3878174
-22,Tepic,Nayarit,21.50951,-104.8956909
-23,Tepic,Nayarit,21.50951,-104.8956909
-23,Guadalajara,Jalisco,20.6668205,-103.3918228
-24,Guadalajara,Jalisco,20.6668205,-103.3918228
-24,Colima,Colima,19.2499695,-103.7271423
-25,Colima,Colima,19.2499695,-103.7271423
-25,Cuernavaca,Morelos,18.9260998,-99.230751
-26,Cuernavaca,Morelos,18.9260998,-99.230751
-26,Chilpancingo de los Bravo,Guerrero,17.5506001,-99.5057831
-27,Chilpancingo de los Bravo,Guerrero,17.5506001,-99.5057831
-27,Oaxaca de Juarez,Oaxaca,17.0654202,-96.7236481
-28,Oaxaca de Juarez,Oaxaca,17.0654202,-96.7236481
-28,Tuxtla Gutierrez,Chiapas,16.7597294,-93.1130829
-29,Tuxtla Gutierrez,Chiapas,16.7597294,-93.1130829
-29,Villahermosa,Tabasco,17.9868908,-92.9302826
-30,Villahermosa,Tabasco,17.9868908,-92.9302826
-30,Campeche,Campeche,19.8438606,-90.5255432
-31,Campeche,Campeche,19.8438606,-90.5255432
-31,Cancun,Quintana Roo,21.1742897,-86.8465576
-32,Cancun,Quintana Roo,21.1742897,-86.8465576
+9,Toluca de Lerdo,Mexico,19.2878609,-99.6532364
+9,Ciudad de Mexico,Distrito Federal,19.4284706,-99.1276627
+10,Ciudad de Mexico,Distrito Federal,19.4284706,-99.1276627
+10,Puebla de Zaragoza,Puebla,19.0379295,-98.2034607
+11,Puebla de Zaragoza,Puebla,19.0379295,-98.2034607
+11,Tlaxcala,Tlaxcala,19.3190498,-98.1998215
+12,Tlaxcala,Tlaxcala,19.3190498,-98.1998215
+12,Veracruz,Veracruz de Ignacio de la Llave,19.5312405,-96.9158936
+13,Veracruz,Veracruz de Ignacio de la Llave,19.5312405,-96.9158936
+13,Pachuca de Soto,Hidalgo,20.1169701,-98.7332916
+14,Pachuca de Soto,Hidalgo,20.1169701,-98.7332916
+14,San Luis Potosi,San Luis Potosi,22.1498203,-100.9791565
+15,San Luis Potosi,San Luis Potosi,22.1498203,-100.9791565
+15,Leon,Guanajuato,21.1290798,-101.6737366
+16,Leon,Guanajuato,21.1290798,-101.6737366
+16,Aguascalientes,Aguascalientes,21.8823395,-102.2825928
+17,Aguascalientes,Aguascalientes,21.8823395,-102.2825928
+17,Zacatecas,Zacatecas,22.7684307,-102.5814133
+18,Zacatecas,Zacatecas,22.7684307,-102.5814133
+18,Saltillo,Coahuila de Zaragoza,25.4232101,-101.0053024
+19,Saltillo,Coahuila de Zaragoza,25.4232101,-101.0053024
+19,Monterrey,Nuevo Leon,25.6750698,-100.3184662
+20,Monterrey,Nuevo Leon,25.6750698,-100.3184662
+20,Chihuahua,Chihuahua,28.6352806,-106.0888901
+21,Chihuahua,Chihuahua,28.6352806,-106.0888901
+21,Hermosillo,Sonora,29.1026001,-110.9773178
+22,Hermosillo,Sonora,29.1026001,-110.9773178
+22,Tijuana,Baja California,32.5027008,-117.0037079
+23,Tijuana,Baja California,32.5027008,-117.0037079
+23,La Paz,Baja California Sur,24.1443691,-110.300499
+24,La Paz,Baja California Sur,24.1443691,-110.300499
+24,Culiacan,Sinaloa,24.7903194,-107.3878174
+25,Culiacan,Sinaloa,24.7903194,-107.3878174
+25,Victoria de Durango,Durango,24.0203209,-104.6575623
+26,Victoria de Durango,Durango,24.0203209,-104.6575623
+26,Tepic,Nayarit,21.50951,-104.8956909
+27,Tepic,Nayarit,21.50951,-104.8956909
+27,Guadalajara,Jalisco,20.6668205,-103.3918228
+28,Guadalajara,Jalisco,20.6668205,-103.3918228
+28,Colima,Colima,19.2499695,-103.7271423
+29,Colima,Colima,19.2499695,-103.7271423
+29,Morelia,Michoacan de Ocampo,19.7007809,-101.184433
+30,Morelia,Michoacan de Ocampo,19.7007809,-101.184433
+30,Santiago de Queretaro,Queretaro,20.5880604,-100.3880615
+31,Santiago de Queretaro,Queretaro,20.5880604,-100.3880615
+31,Tampico,Tamaulipas,22.2448406,-97.8351974
+32,Tampico,Tamaulipas,22.2448406,-97.8351974
 32,Merida,Yucatan,20.9753704,-89.6169586

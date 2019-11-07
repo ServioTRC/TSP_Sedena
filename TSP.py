@@ -17,8 +17,9 @@ def genetic(filtered_list, search_city):
     cities_to_csv(best_route, "Output.csv")
     evolution_to_csv(cost_track, "Costs_Evolution.csv")
 
-# def brute(filtered_list, search_city):
-#     print('NOT IMPLEMENTED YET')
+
+def brute_running(filtered_list, search_city):
+    brute(filtered_list, search_city)
 
 
 def main():
@@ -47,7 +48,7 @@ def main():
         genetic(filtered_list, search_city)
     else:
         print('Running Brute Force Algorithm')
-        brute(filtered_list, search_city)
+        brute_running(filtered_list, search_city)
 
 
 if __name__ == '__main__':
